@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 // src/components/TaskForm.js
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTask } from "../redux/features/task/taskSlice";
 
-function TaskForm({ addTask }) {
+function TaskForm() {
+  const dispatch = useDispatch();
   const [task, setTask] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.trim() !== "") {
-      addTask(task);
+      dispatch(addTask(task));
       setTask("");
     }
   };
