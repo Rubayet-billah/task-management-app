@@ -5,12 +5,12 @@ const TaskCalculation = () => {
 
   const calculateCompletionPercentage = () => {
     if (tasks.length === 0) {
-      return 0; // Return 0% if there are no tasks.
+      return "0.00"; // Return 0% if there are no tasks.
     }
 
     const completedTasks = tasks.filter((task) => task.completed);
     const percentage = (completedTasks.length / tasks.length) * 100;
-    return Math.round(percentage); // Round the percentage to a whole number.
+    return percentage.toFixed(2); // Round the percentage to a whole number.
   };
 
   return (
@@ -23,7 +23,7 @@ const TaskCalculation = () => {
         <div className="flex-1">
           <div className="bg-gray-200 h-4 rounded-full">
             <div
-              className="bg-blue-500 h-4 rounded-full"
+              className="bg-green-500 h-4 rounded-full"
               style={{
                 width: `${calculateCompletionPercentage()}%`,
               }}
