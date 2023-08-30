@@ -1,4 +1,4 @@
-// src/taskSlice.js
+// src/redux/features/task/taskSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const taskSlice = createSlice({
@@ -19,8 +19,11 @@ const taskSlice = createSlice({
         task.completed = !task.completed;
       }
     },
+    clearAllTasks: (state) => {
+      state.length = 0; // Clear all tasks by setting the array length to 0
+    },
   },
 });
 
-export const { addTask, completeTask } = taskSlice.actions;
+export const { addTask, completeTask, clearAllTasks } = taskSlice.actions;
 export default taskSlice.reducer;
